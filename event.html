@@ -13,8 +13,27 @@
 	<div id="container"></div>
 
 	<script type="text/babel">
-
-	ReactDOM.render(<div className="board">Test</div>,document.getElementById('container'));
+		var Comment = React.createClass({
+			edit: function(){
+				alert('Editing the comment');
+			},
+			remove: function(){
+				alert('Removing the comment');
+			},
+			render: function(){
+				return(<div className="commentContainer">
+					<div className="commentText">{this.props.children}</div>
+					<button onClick={this.edit} className="button-primary">Edit</button>
+					<button onClick={this.remove} className="button-danger">Remove</button>
+				</div>
+				);
+			}
+		});
+		ReactDOM.render(<div className="board">
+			<Comment>Hey Now</Comment>
+			<Comment>Rajesh Here!</Comment>
+			<Comment>from bucky class.. It's awesome to learn REACT JS :)</Comment>
+		</div>,document.getElementById('container'));
 	</script>
 </body>
 </html>
